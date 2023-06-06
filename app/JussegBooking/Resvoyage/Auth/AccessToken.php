@@ -16,23 +16,18 @@ class AccessToken
      * @param $clientname
      * @return mixed
      */
-    private function __invoke(): object
+    public function getToken()
     {
         $this->url = config('booking.resvoyage.api_url') . "/public/token";
 
         //get the token 
         $token =
             Http::acceptJson()->get($this->url, [
-                'clientname' => config('booking.resvoyaage.clientname')
+                'clientname' => config('booking.resvoyage.clientname')
             ]);
         return $this->apiResponse($token);
 
         //cache token
         //refresh token after 300 minutes
-    }
-
-    public static function getToken(): object
-    {
-        return self::__invoke();
     }
 }
