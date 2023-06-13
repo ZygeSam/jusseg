@@ -18,9 +18,10 @@ class AirController extends Controller
     /**
      * Display all Airlines based on search keywords.
      */
-    public function index(GetAirlinesRequest $request): object|array
+    public function index(GetAirlinesRequest $request): object|array|string
     {
-        return response()->json((new Airline)->getAirlines($request), 200);
+        return ["Hello" => 12, "hdh" => 908];
+        // return response()->json((new Airline)->getAirlines($request), 200);
     }
 
     /**

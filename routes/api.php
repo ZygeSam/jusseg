@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirController;
+use App\Http\Controllers\AirportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,9 @@ Route::prefix('air')->group(function () {
         Route::get('/multicity', [AirController::class, 'multiCityTrip']);
         Route::get('/flexibletrip', [AirController::class, 'flexibleTrip']);
         Route::get('/storeflight', [AirController::class, 'storeFlight']);
+    });
+
+    Route::prefix('getairports')->group(function () {
+        Route::get('/list', [AirportsController::class, 'index']);
     });
 });
